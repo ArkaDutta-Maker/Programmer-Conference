@@ -26,7 +26,7 @@ def home():
     for id in range(0,total):
         if( data['content']['data'][id]['date_time_obj'] >= pytz.UTC.localize(datetime.datetime.now())):
             data_date.append(data['content']['data'][id])
-    return render_template("upcoming.html", datas = data_date,type = "Upcoming", count = len(data_date),countries = country_list)
+    return render_template("upcoming.html", datas = data_date,type = "Future", count = len(data_date),countries = country_list)
 
 @app.route('/about')
 def about():
@@ -48,7 +48,7 @@ def finished():
     for id in range(0,total):
         if( data['content']['data'][id]['date_time_obj'] < pytz.UTC.localize(datetime.datetime.now())):
             data_date.append(data['content']['data'][id])
-    return render_template("upcoming.html", datas = data_date,type="Finished",count = len(data_date),countries = country_list)
+    return render_template("upcoming.html", datas = data_date,type="Past",count = len(data_date),countries = country_list)
 
 # if __name__ == "__main__":
 #    app.run(debug=True)

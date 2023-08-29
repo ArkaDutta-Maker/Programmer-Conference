@@ -33,7 +33,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='main.css') }}?version=2.1"
+      href="{{ url_for('static', filename='main.css') }}?version=2.2"
     />
 
     {% if title %}
@@ -94,21 +94,21 @@
           <div class="dropdown-menu" aria-labelledby="triggerId">
             {% if type == "All"%}
             <a class="dropdown-item btn btn-dark" href="/home">
-              Upcoming Conferences
+              Future Conferences
             </a>
             <a class="dropdown-item btn btn-dark" href="/finished">
-              Finished Conferences
+              Past Conferences
             </a>
-            {% elif type == "Upcoming"%}
+            {% elif type == "Future"%}
             <a class="dropdown-item btn btn-dark" href="/finished">
-              Finished Conferences
+              Past Conferences
             </a>
             <a class="dropdown-item btn btn-dark" href="/all">
               All Conferences
             </a>
-            {% elif type == "Finished"%}
+            {% elif type == "Past"%}
             <a class="dropdown-item btn btn-dark" href="/home">
-              Upcoming Conferences
+              Future Conferences
             </a>
             <a class="dropdown-item btn btn-dark" href="/all">
               All Conferences
@@ -123,7 +123,7 @@
             aria-haspopup="true"
             aria-expanded="false"
           >
-            Filter By Region
+            Country Filter
           </button>
           <div class="dropdown-menu" aria-labelledby="triggerId">
             {% for country in countries %}
@@ -155,7 +155,7 @@
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{url_for('static',filename='main.js')}}?version=2.1"></script>
+    <script src="{{url_for('static',filename='main.js')}}?version=2.2"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
