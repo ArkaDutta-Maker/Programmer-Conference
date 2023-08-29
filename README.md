@@ -1,4 +1,4 @@
-# Programmer-Conference
+# Programmer Conference
 
 Used flask to build this project for my GDSC JU Dev submission
 
