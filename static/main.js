@@ -83,5 +83,5 @@ function ShowAll() {
     document.getElementById("update").innerHTML =
       card.length.toString() + " Items Found.";
   }
-  document.getElementsByClassName("country")[0].innerHTML = "Country Filter";
+  document.getElementsByClassName("country")[0].innerHTML = "Region Filter";
 }
