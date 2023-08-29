@@ -33,7 +33,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="{{ url_for('static', filename='main.css') }}"
+      href="{{ url_for('static', filename='main.css') }}?version=2.1"
     />
 
     {% if title %}
@@ -71,13 +71,13 @@
       </nav>
     </header>
     <main role="main" class="container">
-      <!-- <button
+      <button
         type="button"
         class="btn shadow btn-light btn-lg"
         id="btn-back-to-top"
       >
         <i class="fa fa-solid fa-arrow-up"></i>
-      </button> -->
+      </button>
       <div class="row-md-8 d-flex justify-content-between mb-3">
         <div class="dropdown open">
           <button
@@ -155,7 +155,7 @@
     </main>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{url_for('static',filename='main.js')}}"></script>
+    <script src="{{url_for('static',filename='main.js')}}?version=2.1"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

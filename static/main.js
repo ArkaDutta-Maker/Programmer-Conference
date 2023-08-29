@@ -7,26 +7,26 @@ if (card.length == 1) {
 }
 
 let button_up = document.getElementById("btn-back-to-top");
-// Due to Vercel app problems GO UP is not working on phones
-// // When the user scrolls down 20px from the top of the document, show the button
-// window.onscroll = function () {
-//   scrollFunction();
-// };
 
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     button_up.style.display = "block";
-//   } else {
-//     button_up.style.display = "none";
-//   }
-// }
-// // When the user clicks on the button, scroll to the top of the document
-// button_up.addEventListener("click", backToTop);
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function () {
+  scrollFunction();
+};
 
-// function backToTop() {
-//   document.body.scrollTop = 0;
-//   document.documentElement.scrollTop = 0;
-// }
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    button_up.style.display = "block";
+  } else {
+    button_up.style.display = "none";
+  }
+}
+// When the user clicks on the button, scroll to the top of the document
+button_up.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 function Check(country) {
   var country_check = document.getElementsByName("country");
