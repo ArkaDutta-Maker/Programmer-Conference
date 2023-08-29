@@ -23,10 +23,13 @@ app = Flask(__name__)
 @app.route('/home')
 def home():
     data_date=list()
+    country_list_future = set()
     for id in range(0,total):
         if( data['content']['data'][id]['date_time_obj'] >= pytz.UTC.localize(datetime.datetime.now())):
             data_date.append(data['content']['data'][id])
-    return render_template("upcoming.html", datas = data_date,type = "Future", count = len(data_date),countries = country_list)
+            country_list_future.add(data['content']['data'][id]['venue_country'])
+
+    return render_template("upcoming.html", datas = data_date,type = "Future", count = len(data_date),countries = country_list_future)
 
 @app.route('/about')
 def about():
@@ -45,10 +48,12 @@ def all():
 @app.route('/finished')
 def finished():
     data_date=list()
+    country_list_past = set()
     for id in range(0,total):
         if( data['content']['data'][id]['date_time_obj'] < pytz.UTC.localize(datetime.datetime.now())):
             data_date.append(data['content']['data'][id])
-    return render_template("upcoming.html", datas = data_date,type="Past",count = len(data_date),countries = country_list)
+            country_list_past.add(data['content']['data'][id]['venue_country'])
+    return render_template("upcoming.html", datas = data_date,type="Past",count = len(data_date),countries = country_list_past)
 
 # if __name__ == "__main__":
 #    app.run(debug=True)
