@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="{{ url_for('static', filename='favicon.ico') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+
+    {% if title %}
+    <title>Programming Conferences - {{ title }}</title>
+    {% else %}
+    <title>Programming Conferences</title>
+    {% endif %}
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/">Programming Conferences</a>
+          <button
+            class="navbar-toggler ms-auto"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#n_bar"
+            aria-controls="navbarNavAltMarkup"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="n_bar">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <button
+        type="button"
+        class="btn shadow btn-light btn-lg"
+        id="btn-back-to-top"
+      >
+        <i class="fa fa-solid fa-arrow-up"></i>
+      </button>
+      <div class="row-md-8 d-flex justify-content-between mb-3">
+        <div class="dropdown open">
+          <button
+            class="btn btn-outline-dark dropdown-toggle dropdown-toggle-split"
+            type="button"
+            id="triggerId"
+            style="max-width: 102px"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {{type}}
+          </button>
+          <div class="dropdown-menu" aria-labelledby="triggerId">
+            {% if type == "All"%}
+            <a class="dropdown-item btn btn-dark" href="/home">
+              Upcoming Conferences
+            </a>
+            <a class="dropdown-item btn btn-dark" href="/finished">
+              Finished Conferences
+            </a>
+            {% elif type == "Upcoming"%}
+            <a class="dropdown-item btn btn-dark" href="/finished">
+              Finished Conferences
+            </a>
+            <a class="dropdown-item btn btn-dark" href="/all">
+              All Conferences
+            </a>
+            {% elif type == "Finished"%}
+            <a class="dropdown-item btn btn-dark" href="/home">
+              Upcoming Conferences
+            </a>
+            <a class="dropdown-item btn btn-dark" href="/all">
+              All Conferences
+            </a>
+            {%endif%}
+          </div>
+          <button
+            class="btn btn-outline-dark dropdown-toggle country my-2"
+            type="button"
+            id="triggerId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Filter By Region
+          </button>
+          <div class="dropdown-menu" aria-labelledby="triggerId">
+            {% for country in countries %}
+            <button
+              class="dropdown-item btn btn-dark"
+              onclick="Check('{{country}}')"
+            >
+              {{country}}
+            </button>
+            {%endfor%}
+            <button class="dropdown-item btn btn-dark" onclick="ShowAll()">
+              --Select--
+            </button>
+          </div>
+        </div>
+        <span class="col-md-5 mt-3" id="update">
+          <div
+            class="spinner-border text-primary spinner-border-sm"
+            role="status"
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </span>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">{% block content %}{% endblock %}</div>
+      </div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{{url_for('static',filename='main.js')}}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

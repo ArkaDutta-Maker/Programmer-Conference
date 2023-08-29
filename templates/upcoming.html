@@ -1,0 +1,67 @@
+{% extends "layout.html" %} {% block content %} {% for post in datas %}
+<!-- <div class="card text-white bg-primary">
+  <img class="card-img-top" src="holder.js/100px180/" alt="" />
+  <div class="card-body">
+    <h4 class="card-title">Title</h4>
+    <p class="card-text">Text</p>
+  </div>
+</div> -->
+
+<article
+  class="card content-section p-3 mb-5 mt-auto bg-white rounded hoverable"
+  id="count"
+  style="display: block"
+>
+  <img class="card-img-top rounded" src="{{post['banner_image']}}" />
+
+  <div class="card-body">
+    <img
+      class="rounded-circle border article-img"
+      src="{{post['organiser_icon']}}"
+    />
+
+    <span class="mr-2">{{ post['organiser_name'] }}</span>
+    <small class="mt-3 text-muted float-end d-none d-lg-block"
+      >{{ post['date_time'] }}</small
+    >
+
+    <h2 class="article-title">
+      {{ post['title'] }} at {{post['venue_city']}},
+      <span name="country">{{post['venue_country']}}</span>
+    </h2>
+    <p class="article-content">{{ post['description'] }}</p>
+
+    <a
+      type="button"
+      name=""
+      id=""
+      class="align-items-center btn btn-secondary icon-link icon-link-hover"
+      href="/posts/{{post['id']}}"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="icon feather-external-link"
+      >
+        <path
+          d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+        ></path>
+        <polyline points="15 3 21 3 21 9"></polyline>
+        <line x1="10" y1="14" x2="21" y2="3"></line>
+      </svg>
+
+      Click for more details
+    </a>
+  </div>
+</article>
+
+{% endfor %} {% endblock content %}
