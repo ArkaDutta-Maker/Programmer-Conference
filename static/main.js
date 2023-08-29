@@ -63,7 +63,7 @@ function Check(country) {
       count.toString() + " Item Found";
   } else {
     document.getElementById("update").innerHTML =
-      count.toString() + " Items Found.";
+      count.toString() + " Items Found";
   }
   document.getElementsByClassName("country")[0].innerHTML = country;
 }
@@ -81,7 +81,7 @@ function ShowAll() {
       card.length.toString() + " Item Found";
   } else {
     document.getElementById("update").innerHTML =
-      card.length.toString() + " Items Found.";
+      card.length.toString() + " Items Found";
   }
   document.getElementsByClassName("country")[0].innerHTML = "Region Filter";
 }
